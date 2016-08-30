@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Symfony-standard" default="reproduce_bug">
+	<target name="reproduce_bug">
+		<parallel>
+			<antcall target="phpunit"/>
+		</parallel>
+	</target>
+
+	<target name="phpunit">
+		<exec executable="bin/local/phpunit" failonerror="true">
+		</exec>
+	</target>
+</project>
