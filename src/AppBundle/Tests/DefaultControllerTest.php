@@ -13,7 +13,7 @@ class DefaultControllerTest extends WebTestCase
         $client->request('GET', '/csrf');
         $response = $client->getResponse();
 
-		$this->assertSame('The CSRF token is invalid. Please try to resubmit the form.', $response->getContent());
+        $this->assertSame('The CSRF token is invalid. Please try to resubmit the form.', $response->getContent());
     }
 
     public function testCsrfIsDisabledByExtension()
@@ -23,6 +23,6 @@ class DefaultControllerTest extends WebTestCase
         $client->request('GET', '/no-csrf');
         $response = $client->getResponse();
 
-		$this->assertSame('OK', $response->getContent());
+        $this->assertSame('OK', $response->getContent());
     }
 }

@@ -48,7 +48,7 @@
         "platform": {
             "php": "5.5.9"
         },
-		"bin-dir": "bin/local"
+        "bin-dir": "bin/local"
     },
     "extra": {
         "symfony-app-dir": "app",

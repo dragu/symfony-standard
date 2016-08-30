@@ -10,27 +10,27 @@ use AppBundle\Entity\Comment;
 
 class DefaultController extends Controller
 {
-	/**
+    /**
      * @Route("/csrf", name="csrf")
      */
-	public function csrfAction()
-	{
+    public function csrfAction()
+    {
         $commentForm = $this->createForm(CommentType::class, new Comment());
 
         $commentForm->submit([
-			'comment' => 'fuuuuuuuuu'
-		]);
+            'comment' => 'fuuuuuuuuu'
+        ]);
 
         if (!$commentForm->isValid()) {
             return new Response($commentForm->getErrors(true)[0]->getMessage(), Response::HTTP_BAD_REQUEST);
         }
-	}
+    }
 
-	/**
+    /**
      * @Route("/no-csrf", name="nocsrf")
      */
-	public function noCsrfAction()
-	{
+    public function noCsrfAction()
+    {
         $commentForm = $this->createForm(CommentType::class, new Comment());
 
         $commentForm->submit([
@@ -38,9 +38,9 @@ class DefaultController extends Controller
         ]);
 
         if (!$commentForm->isValid()) {
-			return new Response($commentForm->getErrors(true)[0]->getMessage(), Response::HTTP_BAD_REQUEST);
+            return new Response($commentForm->getErrors(true)[0]->getMessage(), Response::HTTP_BAD_REQUEST);
         }
 
-		return new Response('OK');
-	}
+        return new Response('OK');
+    }
 }

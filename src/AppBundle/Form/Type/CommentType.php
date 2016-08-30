@@ -14,16 +14,16 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
-			'comment',
-			TextareaType::class,
-			[
-				'label' => 'create_comment.label.comment',
-				'property_path' => 'comment',
-				'attr' => [
-					'maxlength' => 2000,
-				],
-			]
-		);
+            'comment',
+            TextareaType::class,
+            [
+                'label' => 'create_comment.label.comment',
+                'property_path' => 'comment',
+                'attr' => [
+                    'maxlength' => 2000,
+                ],
+            ]
+        );
     }
 
     /**

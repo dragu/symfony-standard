@@ -25,16 +25,16 @@ class DisableCSRFExtensionForRestApi extends AbstractTypeExtension
     public function configureOptions(OptionsResolver $resolver)
     {
         if (!$this->isApi()) {
-			/**
-			 * THIS IS NOT REQUIRED TO REPRODUCE THE BUG!
-			 *
-			 * It just prevents you from getting "Notice: Undefined index: csrf_protection" in tests
-			 * if you comment the line "'csrf_protection' => $this->defaultEnabled," in
-			 * vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Csrf/Type/FormTypeCsrfExtension.php
-			 */
-			$resolver->setDefaults([
-				'csrf_protection' => true,
-			]);
+            /**
+             * THIS IS NOT REQUIRED TO REPRODUCE THE BUG!
+             *
+             * It just prevents you from getting "Notice: Undefined index: csrf_protection" in tests
+             * if you comment the line "'csrf_protection' => $this->defaultEnabled," in
+             * vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Csrf/Type/FormTypeCsrfExtension.php
+             */
+            $resolver->setDefaults([
+                'csrf_protection' => true,
+            ]);
 
             return;
         }
@@ -52,8 +52,8 @@ class DisableCSRFExtensionForRestApi extends AbstractTypeExtension
         return FormType::class;
     }
 
-	private function isApi()
-	{
-		return ($this->requestStack->getCurrentRequest()->getPathInfo() === '/no-csrf');
-	}
+    private function isApi()
+    {
+        return ($this->requestStack->getCurrentRequest()->getPathInfo() === '/no-csrf');
+    }
 }
